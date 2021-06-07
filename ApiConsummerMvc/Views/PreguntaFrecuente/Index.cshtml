@@ -1,0 +1,53 @@
+﻿@{
+    long eventoId = ViewBag.eventoId;
+    @model IEnumerable<PP.IServicio.PreguntaFrecuente.PreguntaFrecuenteDto>
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<h2>Index</h2>
+
+<p>
+    <div class="row bottomSpace">
+        <div class="col-lg-12">
+            <div class="pull-left">
+                <a href="@Url.Action("Create", "PreguntaFrecuente",new {id=eventoId})"
+                   class="btn btn-default pull-left btn-success">Hacer una Pregunta</a>
+            </div>
+        </div>
+    </div>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Respuesta)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Respuesta)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

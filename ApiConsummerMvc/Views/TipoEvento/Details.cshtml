@@ -1,0 +1,38 @@
+﻿@using PP.IServicio.TipoEvento
+
+@{
+    TipoEventoDto tEvento = ViewBag.tEvento;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Details</h2>
+
+<div>
+    <h4>TipoEventoDto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName(tEvento.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.Display(tEvento.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayName(tEvento.Eliminado.ToString())
+        </dt>
+
+        <dd>
+            @Html.Display(tEvento.Eliminado.ToString())
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = tEvento.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

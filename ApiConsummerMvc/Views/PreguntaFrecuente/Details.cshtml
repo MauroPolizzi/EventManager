@@ -1,0 +1,38 @@
+﻿@using PP.IServicio.PreguntaFrecuente
+
+@{
+    PreguntaFrecuenteDto pregunta = ViewBag.pregunta;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Details</h2>
+
+<div>
+    <h4>PreguntaFrecuenteDto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName(pregunta.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.Display(pregunta.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayName(pregunta.Respuesta)
+        </dt>
+
+        <dd>
+            @Html.Display(pregunta.Respuesta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = pregunta.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

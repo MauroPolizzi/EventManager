@@ -1,0 +1,82 @@
+﻿@model IEnumerable<PP.IServicio.Factura.FacturaDto>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    body {
+        margin-top: 100px;
+    }
+</style>
+
+<h2 class="text-center"><ins>Facturas</ins></h2>
+<div class="container">
+    <table class="table table-striped">
+        <tr class="thead-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monto)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ClienteId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntradaId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Eliminado)
+                </th>
+                <th></th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroFactura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadEntrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monto)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ClienteId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntradaId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FormaPagoId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Eliminado)
+                    </td>*@
+                    <td>
+                        <a class="btn btn-info" href="@Url.Action("Detail", "Factura",new{id = item.Id})">Detalle</a>
+                    </td>
+            </tr>
+         }
+
+    </table>
+    <a class="btn btn-info" href="@Url.Action("EventAll", "Evento")">Ver Otros Eventos</a>
+</div>
+
+
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+

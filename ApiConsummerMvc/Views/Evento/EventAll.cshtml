@@ -1,0 +1,99 @@
+﻿@using PP.IServicio.TipoEvento
+@model IEnumerable<PP.IServicio.Evento.EventoDto>
+
+@{
+    ViewBag.Title = "EventAll";
+    List<TipoEventoDto> listaTipo = ViewBag.tipoevento;
+}
+
+
+<div class="container">
+    <div class="jumbotron mt-5">
+        <h1 class="display-4 text-center">Conoce todos las Categorias de Eventos que tenemos para vos!</h1>
+	    <div class="row">
+		@foreach (var tipo in listaTipo)
+        {
+				    
+            @*<hr class="my-4"/>*@
+		           
+            @*<div class="text-center">
+                <a href="@Url.Action("EventAllForType","Evento",new {id = tipo.Id})" class="btn btn-info">@tipo.Descripcion</a>
+               
+            </div>*@
+
+	        
+		        @*<a href="@Url.Action("EventAllForType","Evento",new {id = tipo.Id})" class="btn btn-info">@tipo.Descripcion</a>*@
+				
+				
+		        <div class="col">
+			        <div class="card bg-dark">
+				        @*<img src="~/Models/Imagenes/img3.jpg" style="border-radius: 50%" height="140px;" width="140px;">*@
+						
+				        @if (tipo.Descripcion == "Arte")
+				        {
+					        <img src="~/Models/Imagenes/arte.jpg" style="border-radius: 50%" height="140px;" width="140px;">
+				        }
+				        @*@if (tipo.Descripcion == "Fiesta")
+				        {
+					        <img src="~/Models/Imagenes/fiesta.jpg" style="border-radius: 50%" height="140px;" width="140px;">
+				        }*@
+				        @if (tipo.Descripcion == "Deporte")
+				        {
+					        <img src="~/Models/Imagenes/deporte.jpg" style="border-radius: 50%" height="140px;" width="140px;">
+				        }
+				        @if (tipo.Descripcion == "Economia")
+				        {
+					        <img src="~/Models/Imagenes/economia.jpg" style="border-radius: 50%" height="140px;" width="140px;">
+				        }
+				        @if (tipo.Descripcion == "Fiesta")
+				        {
+					        <img src="~/Models/Imagenes/fiesta.jpg" style="border-radius: 50%" height="140px;" width="140px;">
+				        }
+				        @if (tipo.Descripcion == "Gastronomia")
+				        {
+					        <img src="~/Models/Imagenes/gastronomia.jpg" style="border-radius: 50%" height="140px;" width="140px;">
+				        }
+				        @if (tipo.Descripcion == "Musica")
+				        {
+					        <img src="~/Models/Imagenes/musica.jpg" style="border-radius: 50%" height="140px;" width="140px;">
+				        }
+
+			        </div>
+			        <div class="card-body bg-dark">
+				        <hr/>
+				        <a href="@Url.Action("EventAllForType", "Evento", new {id = tipo.Id})" class="btn btn-success">@tipo.Descripcion</a>
+			        </div>
+		        </div>
+	       
+            @*<hr class="my-4" />*@
+                    
+        }
+	    </div>
+    </div>
+</div>
+
+<div class="container">
+<div class="row">
+	@foreach (var item in Model)
+	{
+
+		<div class="card col-md-2 col-xs-3 mb-4 ml-3" style="margin-top: 90px;">
+			@if (item.Imagen == null)
+			{
+				<img class="card-img-top" src="~/Models/Imagenes/img3.jpg">
+			}
+			else
+			{
+				<img class="card-img-top" src="@Url.Content(item.Imagen)">
+			}
+			<div class="card-body visible-lg">
+				<h4 class="card-title">@item.Nombre</h4>
+				<p class="card-text">@item.Descripcion</p>
+				<span>@item.FechaDesde.ToShortDateString()</span> <span>@item.HoraDesde</span>
+				<a href="@Url.Action("Detail", "Evento", new {id = item.Id})" class="btn btn-info mt-2">Ir al Evento</a>
+			</div>
+		</div>
+		
+	}
+</div >
+</div>

@@ -1,0 +1,226 @@
+﻿@using PP.Servicio._01.Helpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>EventManager</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet"> 
+	
+	<!-- Plugin CSS -->
+    <link href="~/Content/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+	
+	<!-- Custom styles for this template -->
+    <link href="~/Content/css/freelancer.min.css" rel="stylesheet">
+    
+</head>
+<body id="page-top">
+@RenderBody()
+<!--Estilos-->
+<style>
+	body {
+		font-family: 'Sniglet', cursive;
+	}
+
+	 #user{
+		 height: 20px;
+		 width: 20px;
+		 margin-right: 10px;
+	 }
+
+	.navbar {
+		height: 75px;
+		z-index: 2;
+	}
+
+	.navbar-brand {
+		font-family: 'Satisfy', cursive;
+		font-size: 30px;
+	}
+
+	/*.iconos-contacto {
+		height: 20px;
+		width: 20px;
+		margin-right: 10px;
+	}*/
+
+	/*Inicio footer*/
+
+	#contenido-footer {
+		/*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
+		padding-top: 30px;
+		padding-bottom: 30px;
+		background: #333333;
+	}
+
+	.title-footer {
+		font-size: 20px;
+		color: white;
+		margin-bottom: 30px;
+	}
+
+	.parrafo-footer {
+		font-size: 15px;
+		color: #acacac;
+		margin-bottom: 45px;
+	}
+
+	.iconos-contacto {
+		height: 20px;
+		width: 20px;
+		margin-right: 10px;
+	}
+
+	.iconos-contacto-even {
+		height: 50px;
+		width: 50px;
+		margin-right: 10px;
+	}
+
+
+	.lista-contacto {
+		list-style: none;
+		color: #acacac;
+		padding: 0;
+		margin-bottom: 45px;
+	}
+
+	.item-list {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-size: 15px;
+	}
+
+	#btn-quotte {
+		background: #EDCFC0;
+		color: #020607;
+		margin-left: 35px;
+	}
+
+	#btn-quotte:hover {
+		opacity: 0.5;
+		color: black;
+	}
+
+	#work-whit {
+		margin-left: 45px;
+	}
+
+	#divisor-footer {
+		width: 100%;
+		margin: 3px;
+		border-bottom: 3px solid #EDCFC0;
+	}
+
+	.link-even {
+		text-decoration: none;
+		color: #acacac;
+	}
+</style>
+	
+
+<!-- Navigation -->
+<header>
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="@Url.Action("Index", "Home")">EventManager</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse bg-dark" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link ml-2" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ml-2" href="#sec5">About</a>
+				</li>
+				<li class="nav-item">
+				    <a class="nav-link ml-2" href="@Url.Action("EventAll","Evento")">Eventos</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0 ml-2">
+				@if (Identidad.UsuarioLogin != null)
+				{
+					<img id="user" src="~/Models/Imagenes/user-silhouette.png">
+					<label class="text-light mr-2">@Identidad.UsuarioLogin</label>
+					<a href="@Url.Action("CerrarSesion", "Usuario")" class="btn btn-success">CERRAR SESION</a>
+
+					
+				}
+				else
+				{
+					<img id="user" src="~/Models/Imagenes/user-silhouette.png">
+					<a href="@Url.Action("InicioSecion", "Usuario")" class="btn btn-success">INICIAR SESION</a>
+				}
+
+			</form>
+		</div>
+	</nav>
+</header>
+	
+
+<!--Footer-->
+<footer>
+	<section id="contenido-footer">
+		<footer id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h2 class="title-footer text-uppercase">Seguinos</h2>
+						<div>
+							<ul class="lista-contacto list-inline sr-only-focusable">
+								<li><a class="link-even" href="#"><img class="iconos-contacto-even" src="~/Models/Imagenes/facebook-logo-button.png" />Facebook</a></li>
+								<li><a class="link-even" href="#"><img class="iconos-contacto-even" src="~/Models/Imagenes/twitter-logo-button.png" />Twitter</a></li>
+								<li><a class="link-even" href="#"><img class="iconos-contacto-even" src="~/Models/Imagenes/instagram-logo.png" />Instagram</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="title-footer">CONTACT US</h2>
+						<ul class="lista-contacto">
+							<li class="item-list"><a href="#" class="link-even"><img class="iconos-contacto" src="~/Models/Imagenes/facebook-placeholder-for-locate-places-on-maps.png" alt="">945 Madison Ave, New York, NY 10021, EE. UU.</a></li>
+							<li class="item-list"><a href="#" class="link-even"><img class="iconos-contacto" src="~/Models/Imagenes/call-answer.png" alt="">+1 212-731-1675</a></li>
+							<li class="item-list"><a href="#" class="link-even"><img class="iconos-contacto" src="~/Models/Imagenes/envelope.png" alt="">event@manager.com</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h2 class="title-footer">WORK WHIT US</h2>
+						<p id="work-whit" class="parrafo-footer">
+							Start your new project
+						</p>
+						<a id="btn-quotte" class="btn text-uppercase" href="#">get a quotte free</a>
+					</div>
+					<div id="divisor-footer"></div>
+				</div>
+			</div>
+		</footer>
+	</section>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="~/Content/vendor/jquery/jquery.min.js"></script>
+<script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="~/Content/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<!-- Contact Form JavaScript -->
+<script src="~/Content/js/jqBootstrapValidation.js"></script>
+<script src="~/Content/js/contact_me.js"></script>
+<!-- Custom scripts for this template -->
+<script src="~/Content/js/freelancer.min.js"></script>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</body>
+</html>

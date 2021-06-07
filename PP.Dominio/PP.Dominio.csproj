@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58EEA885-FC16-4B62-8CD5-8813290AE480}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PP.Dominio</RootNamespace>
+    <AssemblyName>PP.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entidades\Banco.cs" />
+    <Compile Include="Entidades\ClientePagina.cs" />
+    <Compile Include="Entidades\Configuracion.cs" />
+    <Compile Include="Entidades\Detalle.cs" />
+    <Compile Include="Entidades\Entrada.cs" />
+    <Compile Include="Entidades\Evento.cs" />
+    <Compile Include="Entidades\Factura.cs" />
+    <Compile Include="Entidades\FechaEvento.cs" />
+    <Compile Include="Entidades\FormaPago.cs" />
+    <Compile Include="Entidades\FP_Tarjeta.cs" />
+    <Compile Include="Entidades\FP_Transferencia.cs" />
+    <Compile Include="Entidades\Inscripcion.cs" />
+    <Compile Include="Entidades\Localidad.cs" />
+    <Compile Include="Entidades\PlanTarjeta.cs" />
+    <Compile Include="Entidades\Tarjeta.cs" />
+    <Compile Include="Entidades\Ubicacion.cs" />
+    <Compile Include="Entidades\Pais.cs" />
+    <Compile Include="Entidades\PreguntaFrecuente.cs" />
+    <Compile Include="Entidades\Provincia.cs" />
+    <Compile Include="Entidades\TipoEvento.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Enum\TipoEntrada.cs" />
+    <Compile Include="Enum\TipoFormaPago.cs" />
+    <Compile Include="MetaData\IBanco.cs" />
+    <Compile Include="MetaData\IClientePagina.cs" />
+    <Compile Include="MetaData\IEntrada.cs" />
+    <Compile Include="MetaData\IConfiguracion.cs" />
+    <Compile Include="MetaData\IDetalle.cs" />
+    <Compile Include="MetaData\IEvento.cs" />
+    <Compile Include="MetaData\IFactura.cs" />
+    <Compile Include="MetaData\IFechaEvento.cs" />
+    <Compile Include="MetaData\IFormaPago.cs" />
+    <Compile Include="MetaData\IFP_Tarjeta.cs" />
+    <Compile Include="MetaData\IFP_Transferencia.cs" />
+    <Compile Include="MetaData\IInscripcion.cs" />
+    <Compile Include="MetaData\ILocalidad.cs" />
+    <Compile Include="MetaData\IPais.cs" />
+    <Compile Include="MetaData\IPlanTarjeta.cs" />
+    <Compile Include="MetaData\IPreguntaFrecuente.cs" />
+    <Compile Include="MetaData\IProvincia.cs" />
+    <Compile Include="MetaData\ITarjeta.cs" />
+    <Compile Include="MetaData\ITipoEvento.cs" />
+    <Compile Include="MetaData\IUbicacion.cs" />
+    <Compile Include="MetaData\IUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PP.Dominio.Base\PP.Dominio.Base.csproj">
+      <Project>{990A4E0F-6874-4B99-B5CB-B169325B6419}</Project>
+      <Name>PP.Dominio.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

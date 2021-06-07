@@ -1,0 +1,63 @@
+﻿@using PP.Dominio.Entidades
+@model PP.IServicio.PreguntaFrecuente.PreguntaFrecuenteDto
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PreguntaFrecuenteDto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Respuesta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Respuesta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventoId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EventoDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventoDescripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("DeletePreg", "PreguntaFrecuente"))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(x => x.Id)
+        <div class="form-actions no-color">
+
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+
+        </div>
+        @Html.ActionLink("Back to List", "Index", "PreguntaFrecuente", new { id = Model.EventoId })
+    }
+</div>

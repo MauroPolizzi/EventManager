@@ -1,0 +1,49 @@
+﻿@using PP.Dominio.Entidades
+@model PP.IServicio.TipoEvento.TipoEventoDto
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TipoEventoDto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eliminado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eliminado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("DeleteTipoEvento", "TipoEvento"))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(x => x.Id)
+        <div class="form-actions no-color">
+
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+
+        </div>
+        @Html.ActionLink("Back to List", "Index")
+    }
+</div>

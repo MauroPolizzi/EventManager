@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PP.IServicio.Pais.PaisDto>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h2 class="text-center"><ins>Paises</ins></h2>
+
+<div class="container mb-3">
+	<a href="@Url.Action("Create", "Pais")" class="btn btn-success">Nuevo</a>
+</div>
+
+<div class="container mb-5">
+	<table class="table table-striped mb-5">
+		<tr  class="thead-dark">
+			<th>
+				@Html.DisplayNameFor(model => model.Descripcion)
+			</th>
+			<th></th>
+		</tr>
+
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td class="pt-4">
+					@Html.DisplayFor(modelItem => item.Descripcion)
+				</td>
+				<td class="float-right">
+					@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+					@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+					<div class="row bottomSpace">
+						<div class="col-lg-12">
+							<div class="pull-right">
+								<a href="@Url.Action("Index", "Provincia",new {id=item.Id})"
+								   class="btn btn-default pull-right btn-success">Ver Provincias</a>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		}
+
+	</table>
+</div>
+

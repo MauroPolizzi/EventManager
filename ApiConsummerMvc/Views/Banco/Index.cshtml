@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PP.IServicio.Banco.BancoDto>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h2 class="text-center"><ins>Banco</ins></h2>
+<div class="container mb-3">
+	<a href="@Url.Action("Create", "Banco")" class="btn btn-success">Nuevo</a>
+</div>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<div class="container mb-5">
+	<table class="table table-striped mb-5">
+		<tr class="thead-dark">
+			<th>
+				@Html.DisplayNameFor(model => model.Descripcion)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Eliminado)
+			</th>
+			<th></th>
+		</tr>
+
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Descripcion)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Eliminado)
+				</td>
+				<td>
+					@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+					@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+				</td>
+			</tr>
+		}
+
+	</table>
+
+</div>
+

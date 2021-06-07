@@ -1,0 +1,11 @@
+﻿@model PP.IServicio.Usuario.UsuarioDto
+@{
+    ViewBag.Title = "CerrarSesion";
+}
+
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+	<h2 class="text-center bg-danger text-dark m-auto mt-5">CerrarSesion</h2>
+}

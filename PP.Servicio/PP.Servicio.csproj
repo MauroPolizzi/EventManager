@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F7B1BBA-E44C-4B91-BC2F-73B2C039AB82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PP.Servicio</RootNamespace>
+    <AssemblyName>PP.Servicio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="01.Helpers\Encriptar.cs" />
+    <Compile Include="01.Helpers\Identidad.cs" />
+    <Compile Include="Banco\BancoServicio.cs" />
+    <Compile Include="ClientePagina\ClientePaginaServicio.cs" />
+    <Compile Include="Configuracion\ConfiguracionServicio.cs" />
+    <Compile Include="Detalle\DetalleServicio.cs" />
+    <Compile Include="Entrada\EntradaServicio.cs" />
+    <Compile Include="Evento\EventoServicio.cs" />
+    <Compile Include="Factura\FacturaServicio.cs" />
+    <Compile Include="FechaEvento\FechaEventoServicio.cs" />
+    <Compile Include="FormaPago\FormaPagoServicio.cs" />
+    <Compile Include="FP_Tarjeta\FP_TarjetaServicio.cs" />
+    <Compile Include="FP_Transferencia\FP_TransferenciaServicio.cs" />
+    <Compile Include="Inscripcion\InscripcionServicio.cs" />
+    <Compile Include="Localidad\LocalidadServicio.cs" />
+    <Compile Include="Pais\PaisServicio.cs" />
+    <Compile Include="PlanTarjeta\PlanTarjetaServicio.cs" />
+    <Compile Include="PreguntaFrecuente\PreguntaFrecuenteServicio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provincia\ProvinciaServicio.cs" />
+    <Compile Include="Tarjeta\TarjetaServicio.cs" />
+    <Compile Include="TipoEvento\TipoEventoServicio.cs" />
+    <Compile Include="Ubicacion\UbicacionServicio.cs" />
+    <Compile Include="Usuario\UsuarioServicio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PP.Dominio.Base\PP.Dominio.Base.csproj">
+      <Project>{990A4E0F-6874-4B99-B5CB-B169325B6419}</Project>
+      <Name>PP.Dominio.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PP.Dominio.Repositorio\PP.Dominio.Repositorio.csproj">
+      <Project>{253C267D-5207-420E-969B-D42A1657B8FA}</Project>
+      <Name>PP.Dominio.Repositorio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PP.Dominio\PP.Dominio.csproj">
+      <Project>{58eea885-fc16-4b62-8cd5-8813290ae480}</Project>
+      <Name>PP.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PP.InfraestructuraRepositorio\PP.InfraestructuraRepositorio.csproj">
+      <Project>{6A125FA8-68AE-4D74-9DE1-04686444CBDB}</Project>
+      <Name>PP.InfraestructuraRepositorio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PP.IServicio\PP.IServicio.csproj">
+      <Project>{86633B4B-F5DB-4A45-8001-F6BD913E1047}</Project>
+      <Name>PP.IServicio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PP.Repositorio.Base\PP.Repositorio.Base.csproj">
+      <Project>{4E5BB743-AFF1-4CDF-A4E1-B188D0FDE63D}</Project>
+      <Name>PP.Repositorio.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PP.Repositorio\PP.Repositorio.csproj">
+      <Project>{B053E54D-43D9-4152-A9B2-80478989A4F9}</Project>
+      <Name>PP.Repositorio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PP.Servicio.Base\PP.Servicio.Base.csproj">
+      <Project>{10642614-B8F7-4042-B8E7-F7E797DE3A35}</Project>
+      <Name>PP.Servicio.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

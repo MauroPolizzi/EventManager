@@ -1,0 +1,38 @@
+﻿@using PP.IServicio.Configuracion
+
+@{
+    ConfiguracionDto configuracion = ViewBag.configuracion;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Details</h2>
+
+<div>
+    <h4>ConfiguracionDto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName(configuracion.Publica.ToString())
+        </dt>
+
+        <dd>
+            @Html.Display(configuracion.Publica.ToString())
+        </dd>
+
+        <dt>
+            @Html.DisplayName(configuracion.MostrarCantidadEntradas.ToString())
+        </dt>
+
+        <dd>
+            @Html.Display(configuracion.MostrarCantidadEntradas.ToString())
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = configuracion.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

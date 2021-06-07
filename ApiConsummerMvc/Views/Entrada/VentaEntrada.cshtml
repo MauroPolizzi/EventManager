@@ -1,0 +1,137 @@
+﻿@model PP.IServicio.Entrada.EntradaDto
+@{
+    ViewBag.Title = "VentaEntrada";
+    // nommbre de Evento
+    //
+    // nombre - precio -  descripcion (entrada)
+    // cuantas entradas quiere
+    // boton coprar
+}
+
+
+
+<style>
+    body {
+        margin-top: 100px;
+    }
+</style>
+
+@using (Html.BeginForm("VentaEntradaFactura","Entrada"))
+{
+    @Html.AntiForgeryToken()
+
+    <h2 class="text-center"><ins>Compra Tu Entrada</ins></h2>
+
+    <div class="container">
+        <dt>
+            <h2 class="text-center">Evento: <span>@ViewBag.nombreEvento</span></h2>
+        </dt>
+
+        <dt>
+            <h3>Precio: @Html.DisplayFor(model => model.Precio) </h3>
+        </dt>
+
+        <dt>
+            <h3>@Html.DisplayFor(model => model.Descripcion) </h3>
+        </dt>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CantidadCompra, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CantidadCompra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CantidadCompra, "", new { @class = "text-danger" })
+
+                <dt>
+                    @*<span>Minimo permitido @entrada.MinimoPermitido</span>
+                    <span>Maximo permitido @entrada.MaximoPermitido</span>*@
+                </dt>
+            </div>
+        </div>
+        
+        @Html.HiddenFor(x => x.Id)
+	    <div class="form-group">
+		    <div class="col-md-offset-2 col-md-10">
+			    <input type="submit" value="Aceptar" class="btn btn-success"/>
+			   
+				<!-- Button trigger modal -->
+			    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+				    Launch demo modal
+			    </button>
+		    </div>
+	    </div>
+		
+	   
+
+	    <!-- Modal -->
+	    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		    <div class="modal-dialog modal-dialog-centered" role="document">
+			    <div class="modal-content">
+				    <div class="modal-header bg-light">
+					    @*<h5 class="modal-title" id="exampleModalLabel">Seleccionar Entradas</h5>*@
+						<label class="control-label text-center">Seleccionar Entradas</label>
+					    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						    <span aria-hidden="true">&times;</span>
+					    </button>
+				    </div>
+				    <div class="modal-body">
+					    <label class="control-label mb-3">Las ventas de entradas finalizan 2 dias antes del evento</label>
+					    <div class="container">
+						    <div class="row">
+							    <div class="col-md-8 bg-warning" style="padding: 5px; border: solid 1px gray">
+								    <div class="">
+									    <label class="control-label">Entrada General</label>
+									    <br/>
+									    <label class="control-label">$&nbsp;@Model.Precio</label>
+								    </div>
+							    </div>
+							    <div class="col-md-4 container-fluid">
+								    <select class="dropdown">
+									    <option value="v1">1</option>
+									    <option value="v2">2</option>
+									    <option value="v3">3</option>
+								    </select>
+							    </div>
+						    </div>
+						   
+							<hr/>
+						   
+							<div class="container">
+								<div class="text-center">
+									<ul class="list-inline">
+										<li class="list-inline-item"><img src="~/Models/Imagenes/Pagos/visa1.png" style="height: 25px; width: 28px;"/></li>
+										<li class="list-inline-item"><img src="~/Models/Imagenes/Pagos/american-express-graphic-design-3.jpg" style="height: 25px; width: 28px;"/></li>
+										<li class="list-inline-item"><img src="~/Models/Imagenes/Pagos/logo-mercadopago-300x214.jpg" style="height: 25px; width: 28px;"/></li>		
+										<li class="list-inline-item"><img src="~/Models/Imagenes/Pagos/mastercard.jpg" style="height: 25px; width: 28px;"/></li>										
+										<li class="list-inline-item"><img src="~/Models/Imagenes/Pagos/visa2.jpg" style="height: 25px; width: 28px;"/></li>																					
+										<li class="list-inline-item"><img src="~/Models/Imagenes/Pagos/naranja.png" style="height: 25px; width: 28px;"/></li>
+										<li class="list-inline-item"><img src="~/Models/Imagenes/Pagos/pagofacil.jpg" style="height: 25px; width: 28px;"/></li>										
+										<li class="list-inline-item"><img src="~/Models/Imagenes/Pagos/rapipago.jpg" style="height: 25px; width: 28px;"/></li>
+									</ul>
+								</div>
+						    </div>
+					    </div>
+				    </div>
+				    <div class="modal-footer bg-light">
+					    <div class="container">
+						    <div class="row">
+							    <div class="col">
+								    <span>Cantidad: @Model.CantidadCompra</span>
+							    </div>
+							    <div class="col">
+								    <span>Precio: $&nbsp;@Model.Precio</span>
+							    </div>
+							    <div class="col">
+								    <a href="#" class="btn btn-success container-fluid">Confirmar</a>
+							    </div>
+						    </div>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+
+    </div>
+}
+
+
+

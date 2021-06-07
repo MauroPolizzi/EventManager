@@ -1,0 +1,118 @@
+﻿@model PP.IServicio.Factura.FacturaDto
+
+@{
+    ViewBag.Title = "Detail";
+}
+<style>
+    body {
+        margin-top: 100px;
+    }
+</style>
+
+<h2 class="text-center"><ins>Detalle de Factura</ins></h2>
+
+<div class="container">
+	<div class="card">
+		<dl class="dl-horizontal">
+			<div class="row">
+				<div class="col">
+					<dt class="bg-dark text-light">
+						@Html.DisplayNameFor(model => model.NumeroFactura)
+					</dt>
+
+					<dd>
+						<span>000</span>@Html.DisplayFor(model => model.NumeroFactura)
+					</dd>
+					
+					<dt class="bg-dark text-light">
+						@Html.DisplayNameFor(model => model.Fecha)
+					</dt>
+
+					<dd>
+						@Html.DisplayFor(model => model.Fecha)
+					</dd>
+
+					<dt class="bg-dark text-light">
+						@Html.DisplayNameFor(model => model.CantidadEntrada)
+					</dt>
+
+					<dd>
+						@Html.DisplayFor(model => model.CantidadEntrada)
+					</dd>
+				</div>
+			</div>
+			
+			<div class="col">
+				<dt class="bg-dark text-light">
+					@Html.DisplayNameFor(model => model.PrecioEntrada)
+				</dt>
+
+				<dd>
+					@Html.DisplayFor(model => model.PrecioEntrada)
+				</dd>
+
+				<dt class="bg-dark text-light">
+					@Html.DisplayNameFor(model => model.Monto)
+				</dt>
+
+				<dd>
+					@Html.DisplayFor(model => model.Monto)
+				</dd>
+			</div>
+
+			<div class="col">
+				
+				<dt class="bg-dark text-light">
+					@Html.DisplayNameFor(model => model.Nombre)
+				</dt>
+
+				<dd>
+					@Html.DisplayFor(model => model.Nombre)
+				</dd>
+
+				<dt class="bg-dark text-light">
+					@Html.DisplayNameFor(model => model.Apellido)
+				</dt>
+
+				<dd>
+					@Html.DisplayFor(model => model.Apellido)
+				</dd>
+			</div>
+
+			
+
+			@*<dt>
+				@Html.DisplayNameFor(model => model.ClienteId)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.ClienteId)
+			</dd>*@
+
+			@*<dt>
+				@Html.DisplayNameFor(model => model.EntradaId)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.EntradaId)
+			</dd>*@
+
+			@*<dt>
+				@Html.DisplayNameFor(model => model.Eliminado)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Eliminado)
+			</dd>*@
+
+
+		</dl>
+	</div>
+    <hr />
+   
+</div>
+<a href="@Url.Action("Index", "Factura")" class="btn btn-info">Volver</a>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

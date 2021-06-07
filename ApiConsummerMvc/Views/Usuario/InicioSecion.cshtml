@@ -1,0 +1,48 @@
+﻿@model PP.IServicio.Usuario.UsuarioDto
+@{
+    ViewBag.Title = "InicioSecion";
+}
+
+<h2>InicioSecion</h2>
+
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+	<div class="container">
+		<div class="row">
+			<div class="col"></div>
+
+			<div class="col card mb-4 mt-5">
+				<div style="height: 100px; width: 100px; border-radius: 50%; margin-left: 35%; margin-top: 15px;">
+					<img class="card-img-top img-circle img-responsive" src="~/Models/Imagenes/user-silhouette.png">
+				</div>
+				<div class="card-body visible-lg">
+					<h4 class="card-title text-center">Login</h4>
+					<form class="">
+						<div class="form-group">
+							@*<input class="form-control mb-3" type="text" value="@" placeholder="Usuario"/>
+						<input class="form-control mb-3" type="password" placeholder="Contraseña"/>
+						<input href="@Url.Action("IniciarSecion","Usuario")"class="form-control btn btn-success" type="submit" value="Ingresar">*@
+
+							@Html.EditorFor(model => model.NombreUsuario, new {htmlAttributes = new {@placeholder = "Usuario", @class = "form-control mb-3"}})
+						</div>
+
+						<div class="form-group">
+							@Html.EditorFor(model => model.Password, new {htmlAttributes = new {@placeholder = "Contraseña", @class = "form-control mb-3", @type = "password"}})
+						</div>
+
+						<div class="form-group">
+							<input @*href="@Url.Action("IniciarSecion","Usuario")"*@ class="form-control btn btn-success" type="submit" value="Ingresar">
+						</div>
+						@ViewBag.Bloquedo;
+						<a href="@Url.Action("Create", "ClientePagina")" class="text-decoration-none">Registrarse</a>
+					</form>
+				</div>
+			</div>
+			<div class="col"></div>
+		</div>
+	</div>
+}
+
+

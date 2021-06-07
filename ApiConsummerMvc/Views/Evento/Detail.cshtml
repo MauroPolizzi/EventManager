@@ -1,0 +1,140 @@
+﻿@using PP.Servicio._01.Helpers
+@model PP.IServicio.Evento.EventoDetailDto
+
+@{
+    ViewBag.Title = "Detail";
+    long eventoId = ViewBag.eventoId;
+}
+<style>
+    body {
+        margin-top: 100px;
+    }
+	
+</style>
+
+@*<h2 class="text-center"><ins>Detalle Evento</ins></h2>*@
+
+
+@*<div class="container">
+	<div class="mb-3 mt-5">
+		<img class="img-fluid" src="@Url.Content(@Model.Imagen)">
+	</div>
+	<div class="card mb-5">
+		<div class="card-body">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h2 class="card-title"><ins>@Model.Nombre</ins></h2>
+						<span><ins>Fecha de Inicio:</ins> @Html.DisplayFor(model => model.FechaDesde)</span>
+						<span>@Model.HoraDesde</span>
+						<p class="card-text"><ins>Ubicacion:</ins> @Model.LocalidadId, @Model.PrimDireccion</p>
+					</div>
+					<div class="col">
+						<p class="card-text"><ins>Descripcion:</ins> @Model.Descripcion</p>
+						<span><ins>Organizado Por:</ins> @Model.NombreOrganizador @Model.ApellidoOrganizador</span>
+						<p class="card-text mt-3"><ins>Seguinos!</ins></p>
+						<a class="text-decoration-none" href="@Model.Facebook">Facebook,</a>
+						<a class="text-decoration-none" href="@Model.Twitter"> Twitter</a>
+					</div>
+                    <div class="col">
+                        <p class="card-text"><ins>Precio:</ins> $@Model.Precio</p>
+
+                        @if (Identidad.UsuarioLogin == null)
+                        {
+                            <a href="@Url.Action("InicioSecion", "Usuario")" class="btn btn-success">Comprar Entrada</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("VentaEntrada", "Entrada", new {id = eventoId})" class="btn btn-success">Comprar Entrada</a>
+                        }
+                    </div>
+				</div>
+				<hr />
+			</div>
+		</div>
+	</div>
+</div>*@
+
+@*<section style="z-index: 2">
+	<div>
+		<img src="~/Models/Imagenes/economia.jpg", class="img-fluid img-responsive" style="opacity: .50">
+	</div>
+</section>*@
+
+<div class="container p-3 mb-3" style="border: solid 2px gray; border-radius: 10px">
+	<div class="contenedor">
+		<div class="encabezado">
+			<div class="row">
+				<div class="col-8">
+					<img src="@Url.Content(@Model.Imagen)" class="img-fluid img-responsive">
+				</div>
+				<div class="col-4 bg-light">
+					<label class="mt-4 mb-5">@Html.DisplayFor(model => model.FechaDesde)</label>
+					<h3 class="mt-3">@Model.Nombre</h3>
+					<label class="mb-5 mt-2">por: <span>@Model.NombreOrganizador</span> <span>@Model.ApellidoOrganizador</span></label>
+					<br/>
+					<label class="mt-5 mb-2">$&nbsp;@Model.Precio</label>
+				</div>
+			</div>
+		</div>
+		<div class="entradas">
+			<div class="row">
+				<div class="col-8"></div>
+				<div class="col-4">
+					
+					@if (Identidad.UsuarioLogin == null)
+					{
+						<a href="@Url.Action("InicioSecion", "Usuario")" class="btn btn-success container-fluid">Entradas</a>
+					}
+					else
+					{
+						<a href="@Url.Action("VentaEntrada", "Entrada", new {id = eventoId})" class="btn btn-success container-fluid">Entradas</a>
+					}
+
+				</div>
+			</div>
+		</div>
+		<hr/>
+		<div class="contenido">
+			<div class="row mb-5">
+				<div class="col-8">
+					<div style="margin-left: 30px;" >
+						<label class="mt-2 mb-3">Descripcion</label>
+						<p>@Model.Descripcion</p>
+					</div>
+				</div>
+				<div class="col-4">
+					<label class="mt-2 mb-3">Fecha y Hora</label>
+					<p>
+						<span>@Html.DisplayFor(model => model.FechaDesde)</span>
+						<br/>
+						<span> - @Model.HoraDesde - </span>
+						<br/>
+						<span> -@Model.HoraHasta -</span>
+						<br/>
+						<span>@Html.DisplayFor(modal => modal.FechaHasta)</span>
+					</p>
+					<label class="mt-5 mb-3">Ubicacion</label>
+					<p>
+						<span>@Model.PrimDireccion</span>
+						<br/>
+						<span>@Model.LocalidadDescripcion</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="contenedor">
+			<div>
+				<label class="mb-3">Difundir entre Amigos</label>
+			</div>
+			<div class="redes">
+				<ul class="list-inline">
+					<a href="#"><li class="list-inline-item"><img src="~/Models/Imagenes/facebook-logo-button.png" style="height: 50px; width: 50px;"></li></a>
+					<a href="#"><li class="list-inline-item"><img src="~/Models/Imagenes/instagram-logo.png" style="height: 50px; width: 50px;"></li></a>
+					<a href="#"><li class="list-inline-item"><img src="~/Models/Imagenes/twitter-logo-button.png" style="height: 50px; width: 50px;"></li></a>
+				</ul>
+			</div>
+		</div>
+		<hr/>
+	</div>
+</div>
